@@ -4,7 +4,7 @@ module.exports = {
   name: "setup",
   description: "Setup server config",
   useage: "",
-  run: (client, message, args) => {
+  run: async (client, message, args) => {
     const db = client.db;
     if (!message.author.hasPermission("ADMINISTRATOR"))
       return message.reply("You Have not permission to use this command");
@@ -22,9 +22,20 @@ module.exports = {
       .addField(`\u200B`, `__MODRATION__`)
       .addField("🔨 Logs Channel", `**\`logsChannel\`**`)
       .addField("👤 Member Role", `**\`memberRole\`**`)
+      .addField("🙊 Muted Role", `**\`muteRole\`**`)
       .addField(`\u200B`, `__FEATURES__`)
-      .addField("🤬 Anticurse", `**\`anticurse enable/disable\`**`);
+      .addField("🤬 Anticurse", `**\`anticurse-enable/disable\`**`);
 
     if (!choice) return message.channel.send(mainembed);
+    
+    const anticurseCheck = await db.fetch(`swear-${message.guild.id}`)
+    let anticurseStats;
+   
+    if (anticurseCheck === true) {
+      anticurseStats = `🟢 {ON}` 
+    } else anticurseStats = `🔴 {OFF}`;
+    
+    
+    if (choice === `config`
   }
 };
