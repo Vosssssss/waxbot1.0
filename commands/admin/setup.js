@@ -13,6 +13,8 @@ module.exports = {
     .addField("🔑 USEAGE", `x!setup <section name> [value]`)
     .addField(`\u200B`, `__GENERAL__`)
     .addField("👋 Welcome channel", `Section Name: **welcomeChannel**`)
+    .addField(`🚶goodbye channel`, `Section Name: **goodbye Channel**`)
+
     
     
     message.channel.send(mainembed)
