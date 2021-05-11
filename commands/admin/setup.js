@@ -6,9 +6,9 @@ module.exports = {
   useage: "",
   run: async (client, message, args) => {
     const db = client.db;
-    if (!message.member.hasPermission('ADMINISTRATOR')) {
-			return message.reply("You don't have permission!");
-		}
+    if (!message.member.hasPermission("ADMINISTRATOR")) {
+      return message.reply("You don't have permission!");
+    }
     let choice = args[0];
 
     const mainembed = new MessageEmbed()
@@ -26,24 +26,25 @@ module.exports = {
       .addField("🙊 Muted Role", `**\`muteRole\`**`)
       .addField(`\u200B`, `__FEATURES__`)
       .addField("🤬 Anticurse", `**\`anticurse-enable/disable\`**`)
-    .setFooter("Use x!setup config to get this server configuration!")
+      .setFooter("Use x!setup config to get this server configuration!");
 
     if (!choice) return message.channel.send(mainembed);
-    
- const getWelcomeChannel = await db.get(`welcome-${message.guild.id}`)
-const welcomeChannel = await db.fetch(`welcome-${message.guild.id}`)
-let welcomeStats;
-    
-   if (welcomeChannel){
-     welcomeStats = `<#${getWelcomeChannel}>`
-} else welcomeStats = `Not Seted`
 
+    const getWelcomeChannel = await db.get(`welcome-${message.guild.id}`);
+    const welcomeChannel = await db.fetch(`welcome-${message.guild.id}`);
+    let welcomeStats;
 
-if (choice === `welcome`) {
-  let channel = message.mentions.channels.f
-}
- 
- 
+    if (welcomeChannel) {
+      welcomeStats = `<#${getWelcomeChannel}>`;
+    } else welcomeStats = `Not Seted`;
+
+    if (choice === `welcomeChannel`) {
+      let channel = message.mentions.channels.first();
+      if (!channel) return message.reply("Please specify a channel to set");
+      await db.set(`welcome-${message.guild.id}`, channel.id);
+      message.channel.send("Welcome Channel seted");
+    }
+
     const anticurseCheck = await db.fetch(`swear-${message.guild.id}`);
     let anticurseStats;
 
@@ -62,7 +63,7 @@ if (choice === `welcome`) {
 
         .addField(`\u200B`, `__GENERAL__`)
 
-        .addField("👋 Welcome channel", `\`COMING SOON\``)
+        .addField("👋 Welcome channel", `${welcomeStats}`)
 
         .addField(`🚶goodbye channel`, `\`COMING SOON\``)
 
