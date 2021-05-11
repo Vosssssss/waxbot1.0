@@ -6,8 +6,9 @@ module.exports = {
   useage: "",
   run: async (client, message, args) => {
     const db = client.db;
-    if (!message.author.hasPermission("ADMINISTRATOR"))
-      return message.reply("You Have not permission to use this command");
+    if (!message.member.hasPermission('ADMINISTRATOR')) {
+			return message.reply("You don't have permission!");
+		}
     let choice = args[0];
 
     const mainembed = new MessageEmbed()
@@ -16,7 +17,7 @@ module.exports = {
       .setDescription("Please select which section you want to setup!")
       .addField("🔑 USEAGE", `x!setup <section name> [value]`)
       .addField(`\u200B`, `__GENERAL__`)
-      .addField("👋 Welcome channel", `Section Name : **\`welcomeChannel**\``)
+      .addField("👋 Welcome channel", `Section Name : **\`welcomeChannel\`**`)
       .addField(`🚶goodbye channel`, `Section Name : **\`goodbye Channel\`**`)
       .addField("💠 Auto Role", `**\`autoRole\`**`)
       .addField(`\u200B`, `__MODRATION__`)
@@ -24,50 +25,47 @@ module.exports = {
       .addField("👤 Member Role", `**\`memberRole\`**`)
       .addField("🙊 Muted Role", `**\`muteRole\`**`)
       .addField(`\u200B`, `__FEATURES__`)
-      .addField("🤬 Anticurse", `**\`anticurse-enable/disable\`**`);
+      .addField("🤬 Anticurse", `**\`anticurse-enable/disable\`**`)
+    .setFooter("Use x!setup config to get this server configuration!")
 
     if (!choice) return message.channel.send(mainembed);
-    
-    const anticurseCheck = await db.fetch(`swear-${message.guild.id}`)
+
+    const anticurseCheck = await db.fetch(`swear-${message.guild.id}`);
     let anticurseStats;
-   
+
     if (anticurseCheck === true) {
-      anticurseStats = `🟢 {ON}` 
+      anticurseStats = `🟢 {ON}`;
     } else anticurseStats = `🔴 {OFF}`;
-    
-    
+
     if (choice === `config`) {
-          const config = new MessageEmbed()
+      const config = new MessageEmbed()
 
-      .setColor("BLUE")
+        .setColor("BLUE")
 
-      .setTitle(`⚙️ ${message.guild.name}'s Server Configuration`)
+        .setTitle(`⚙️ ${message.guild.name}'s Server Configuration`)
 
+        .addField("🔑 USEAGE", `x!setup <section name> [value]`)
 
+        .addField(`\u200B`, `__GENERAL__`)
 
-      .addField("🔑 USEAGE", `x!setup <section name> [value]`)
+        .addField("👋 Welcome channel", `\`COMING SOON\``)
 
-      .addField(`\u200B`, `__GENERAL__`)
+        .addField(`🚶goodbye channel`, `\`COMING SOON\``)
 
-      .addField("👋 Welcome channel", `\`COMING SOON\``)
+        .addField("💠 Auto Role", `\`COMING SOON\``)
 
-      .addField(`🚶goodbye channel`, `\`COMING SOON\``)
+        .addField(`\u200B`, `__MODRATION__`)
 
-      .addField("💠 Auto Role", `\`COMING SOON\``)
+        .addField("🔨 Logs Channel", `\`COMING SOON\``)
 
-      .addField(`\u200B`, `__MODRATION__`)
+        .addField("👤 Member Role", `\`COMING SOON\``)
 
-      .addField("🔨 Logs Channel", `\`COMING SOON\``)
+        .addField("🙊 Muted Role", `\`COMING SOON\``)
 
-      .addField("👤 Member Role", `\`COMING SOON\``)
+        .addField(`\u200B`, `__FEATURES__`)
 
-      .addField("🙊 Muted Role", `\`COMING SOON\``)
-
-      .addField(`\u200B`, `__FEATURES__`)
-
-      .addField("🤬 Anticurse", `\`${anticurseStats}\``)
-         message.channel.send(config)
+        .addField("🤬 Anticurse", `\`${anticurseStats}\``);
+      message.channel.send(config);
     }
-    
   }
 };
