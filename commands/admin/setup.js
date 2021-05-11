@@ -16,12 +16,11 @@ module.exports = {
     .addField(`\u200B`, `__GENERAL__`)
     .addField("👋 Welcome channel", `Section Name : **\`welcomeChannel**\``)
     .addField(`🚶goodbye channel`, `Section Name : **\`goodbye Channel\`**`)
+    .addField("💠 Auto Role", `**\`autoRole\`**`)
+    .addField(`\u200B`, `__MODRATION__`)
+    .addField("🔨 Logs Channel", `**\`logsChannel\`**`)
     .addField("
     
-
-    
-    
-    message.channel.send(mainembed)
 		
 	}
 }
