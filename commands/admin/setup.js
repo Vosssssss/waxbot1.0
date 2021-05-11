@@ -29,7 +29,19 @@ module.exports = {
     .setFooter("Use x!setup config to get this server configuration!")
 
     if (!choice) return message.channel.send(mainembed);
-
+    
+ const getWelcomeChannel = await db.get(`welcome-${message.guild.id}`)
+const welcomeChannel = await db.fetch(`welcome-${message.guild.id}`)
+let welcomeStats;
+    
+   if (welcomeChannel){
+     welcome 
+}
+ 
+ 
+ 
+ 
+ 
     const anticurseCheck = await db.fetch(`swear-${message.guild.id}`);
     let anticurseStats;
 
