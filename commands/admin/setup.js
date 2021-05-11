@@ -1,10 +1,14 @@
-const { Client, MeesageEmbed, MessageAttachment } = require("discord.js")
+const { Client, MessageEmbed, MessageAttachment } = require("discord.js")
 
 module.exports = {
 	name: "setup", 
-	description: "",
+	description: "Setup server config",
 	useage: "",
 	run: (client, message, args) => {
-		message.reply("Soon")
+    let choice = args[0]
+    
+    const mainembed = new MessageEmbed()
+    .set()
+		
 	}
 }
