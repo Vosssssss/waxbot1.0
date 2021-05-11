@@ -35,11 +35,8 @@ const welcomeChannel = await db.fetch(`welcome-${message.guild.id}`)
 let welcomeStats;
     
    if (welcomeChannel){
-     welcome 
-}
- 
- 
- 
+     welcomeStats = `<#${getWelcomeChannel}>`
+} else welcomeStats = `Not Seted`
  
  
     const anticurseCheck = await db.fetch(`swear-${message.guild.id}`);
