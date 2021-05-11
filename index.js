@@ -7,10 +7,10 @@ const client = new Client({
   disableEveryone: true
 });
 module.exports = client;
-const config = require("./config/config.json");
-const prefix = config.prefix;
+
+
 const token = process.env.TOKEN;
-client.gg = config;
+client.gg = require("./config/config.json")
 client.db = new Database(
   "mongodb+srv://ngg:CTRj4dXxUdsRRwJ@wax.vfa3u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 );
