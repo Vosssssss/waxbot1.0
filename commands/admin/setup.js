@@ -37,6 +37,11 @@ let welcomeStats;
    if (welcomeChannel){
      welcomeStats = `<#${getWelcomeChannel}>`
 } else welcomeStats = `Not Seted`
+
+
+if (choice === `welcome`) {
+  let channel = message.mentions.channels.f
+}
  
  
     const anticurseCheck = await db.fetch(`swear-${message.guild.id}`);
