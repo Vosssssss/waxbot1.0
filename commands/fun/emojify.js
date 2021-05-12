@@ -1,5 +1,5 @@
-const { Random } = require("nesbros")
-const random = new Random()
+const { nesbro } = require("nesbros")
+const random = new nesbro()
 
 
 module.exports = {

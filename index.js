@@ -1,5 +1,5 @@
 const { Collection, Client, Discord } = require("discord.js");
-const ndb = require("./nesbroDB")
+
 const keep_alive = require("./src/keep_alive.js");
 const { Database } = require("quickmongo");
 const fs = require("fs");
@@ -15,7 +15,7 @@ client.gg = require("./config/config.json")
 client.db = new Database(
 "mongodb+srv://ngg:CTRj4dXxUdsRRwJ@wax.vfa3u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 );
-client.ndb = ndb;
+
 client.emotes = require("./config/emojis.json");
 client.commands = new Collection();
 client.aliases = new Collection();
