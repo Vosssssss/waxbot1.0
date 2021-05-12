@@ -12,7 +12,7 @@ dependencies:
   moment: 2.29.1
   mongoose: 5.12.8
   ms: 2.1.3
-  nesbros: 1.13.0
+  nesbros: 1.18.0
   node-fetch: 2.6.1
   quick.db: 7.1.3
   quickmongo: 3.0.2
@@ -1304,7 +1304,7 @@ packages:
   /discord-player/4.0.7:
     dependencies:
       discord-ytdl-core: 5.0.3
-      soundcloud-scraper: 4.0.4
+      soundcloud-scraper: 4.0.6
       spotify-url-info: 2.2.0
       youtube-sr: 4.0.7
       ytdl-core: 4.7.0
@@ -2078,16 +2078,15 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
-  /nesbros/1.13.0:
+  /nesbros/1.18.0:
     dependencies:
       canvas: 2.7.0
       discord.js: 12.5.3
       jimp: 0.16.1
-      mongoose: 5.12.8
       node-fetch: 2.6.1
     dev: false
     resolution:
-      integrity: sha512-Q8XR0sXCo2e82WoG343nZIm3nghCS/ygf4rX1r+sDJ0PXix4QnPD1/I2Zmz8jU2kTGAP/qIXVmfshn4kdTQ8Xw==
+      integrity: sha512-bwS/o/Qd0FBcM4T8SFf5sEVObgo2k+KfOfmuZ/mNJKRdmAUdFcRxyRdwA96U0cDAeqV+Nie7hgU2EJRrqunA6w==
   /node-abi/2.26.0:
     dependencies:
       semver: 5.7.1
@@ -2560,14 +2559,14 @@ packages:
     dev: false
     resolution:
       integrity: sha1-CzpmK10Ewxd7GSa+qCsD+Dei70E=
-  /soundcloud-scraper/4.0.4:
+  /soundcloud-scraper/4.0.6:
     dependencies:
       cheerio: 1.0.0-rc.9
       m3u8stream: 0.8.3
       node-fetch: 2.6.1
     dev: false
     resolution:
-      integrity: sha512-ei3KuPsVZRiq9j2GN580gQwVGZUWMdkmDAANSPm8qweUa4/UnKAnYiUsc/6volZsQiGsnJAP9+8HECDxNcTg6A==
+      integrity: sha512-yhD6UukY3ZxSjSKRp7II+bBs3W5fU3cdavZueKm6bcGyD8QOXCzHTKrGSTq3zJ+EqkfBEMYVB7wWhh+HSxDmTA==
   /sparse-bitfield/3.0.3:
     dependencies:
       memory-pager: 1.5.0
@@ -2865,7 +2864,7 @@ specifiers:
   canvacord: ^5.2.0
   canvas-senpai: ^2.0.3
   discord-giveaways: ^4.5.1
-  discord-player: ^4.0.6
+  discord-player: ^4.0.7
   discord.js: ^12.5.3
   dotenv: ^9.0.2
   express: ^4.17.1
@@ -2874,7 +2873,7 @@ specifiers:
   moment: ^2.29.1
   mongoose: ^5.12.7
   ms: ^2.1.3
-  nesbros: ^1.13.0
+  nesbros: ^1.18.0
   node-fetch: ^2.6.1
   quick.db: ^7.1.3
   quickmongo: ^3.0.2
