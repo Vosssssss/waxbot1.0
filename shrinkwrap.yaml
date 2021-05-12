@@ -12,7 +12,7 @@ dependencies:
   moment: 2.29.1
   mongoose: 5.12.8
   ms: 2.1.3
-  nesbros: 1.18.0
+  nesbros: 1.2.3
   node-fetch: 2.6.1
   quick.db: 7.1.3
   quickmongo: 3.0.2
@@ -2078,7 +2078,7 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
-  /nesbros/1.18.0:
+  /nesbros/1.2.3:
     dependencies:
       canvas: 2.7.0
       discord.js: 12.5.3
@@ -2086,7 +2086,7 @@ packages:
       node-fetch: 2.6.1
     dev: false
     resolution:
-      integrity: sha512-bwS/o/Qd0FBcM4T8SFf5sEVObgo2k+KfOfmuZ/mNJKRdmAUdFcRxyRdwA96U0cDAeqV+Nie7hgU2EJRrqunA6w==
+      integrity: sha512-rvg46eUMasv5F0YVdQwjS+TqTvj6b9oKDVpZIIpUCtqQPq0snDXV+Gk00E+Hd3/kT9e8TWeRHDBKQp0mMiMQyg==
   /node-abi/2.26.0:
     dependencies:
       semver: 5.7.1
@@ -2873,7 +2873,7 @@ specifiers:
   moment: ^2.29.1
   mongoose: ^5.12.7
   ms: ^2.1.3
-  nesbros: ^1.18.0
+  nesbros: ^1.2.3
   node-fetch: ^2.6.1
   quick.db: ^7.1.3
   quickmongo: ^3.0.2
