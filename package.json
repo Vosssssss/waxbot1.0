@@ -2,11 +2,11 @@
   "//1": "describes your app and its dependencies",
   "//2": "https://docs.npmjs.com/files/package.json",
   "//3": "updating this file will download and update your packages",
-  "name": "antique-gold",
+  "name": "Wax",
   "version": "0.0.1",
-  "description": "A bot made by team devZ for all basic needs",
+  "description": "A bot made by team Nesbro for all basic needs",
   "main": "index.js",
-  "config": "./config.json",
+
   "scripts": {
     "start": "node index.js"
   },
