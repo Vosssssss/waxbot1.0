@@ -30,13 +30,39 @@ module.exports = {
 
     if (!choice) return message.channel.send(mainembed);
 
+    
+
+    const getleaveChannel = await db.get(`leave-${message.guild.id}`);
+
+    const leaveChannel = await db.fetch(`leave-${message.guild.id}`);
+
+    let leaveStats;
+
+    if (leaveChannel) {
+
+      leaveStats = `<#${getleaveChannel}>`;
+
+    } else leaveStats = `\`Not Seted\``;
+
+    if (choice === `leaveChannel`) {
+
+      let channel = message.mentions.channels.first();
+
+      if (!channel) return message.reply("Please specify a channel to set");
+
+      await db.set(`leave-${message.guild.id}`, channel.id);
+
+      message.channel.send("Leave Channel seted");
+
+    }
+    
     const getWelcomeChannel = await db.get(`welcome-${message.guild.id}`);
     const welcomeChannel = await db.fetch(`welcome-${message.guild.id}`);
     let welcomeStats;
 
     if (welcomeChannel) {
       welcomeStats = `<#${getWelcomeChannel}>`;
-    } else welcomeStats = `Not Seted`;
+    } else welcomeStats = `\`Not Seted\``;
 
     if (choice === `welcomeChannel`) {
       let channel = message.mentions.channels.first();
@@ -65,7 +91,7 @@ module.exports = {
 
         .addField("👋 Welcome channel", `${welcomeStats}`)
 
-        .addField(`🚶goodbye channel`, `\`COMING SOON\``)
+        .addField(`🚶goodbye channel`, `${leav)
 
         .addField("💠 Auto Role", `\`COMING SOON\``)
 
