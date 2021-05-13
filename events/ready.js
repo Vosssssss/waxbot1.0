@@ -1,4 +1,4 @@
-const client = require("../index")
+const client = require("@client/index")
 
 client.on('ready', () => {
     client.user.setActivity(`x!help`)
