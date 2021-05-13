@@ -40,13 +40,3 @@
     "express"
   ]
 }
-root"      : ".", // Application's root
-
-  "@deep"      : "src/some/very/deep/directory/or/file",
-
-  "@my_module" : "lib/some-file.js",
-
-  "something"  : "src/foo", // Or without @. Actually, it could be any string
-
-}
-}

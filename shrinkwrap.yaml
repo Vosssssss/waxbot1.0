@@ -9,7 +9,6 @@ dependencies:
   express: 4.17.1
   ffmpeg-static: 4.3.0
   figlet: 1.5.0
-  module-alias: 2.2.2
   moment: 2.29.1
   mongoose: 5.12.8
   ms: 2.1.3
@@ -1918,10 +1917,6 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
-  /module-alias/2.2.2:
-    dev: false
-    resolution:
-      integrity: sha512-A/78XjoX2EmNvppVWEhM2oGk3x4lLxnkEA4jTbaK97QKSDjkIoOsKQlfylt/d3kKKi596Qy3NP5XrXJ6fZIC9Q==
   /moment-duration-format/2.3.2:
     dev: false
     resolution:
@@ -2875,7 +2870,6 @@ specifiers:
   express: ^4.17.1
   ffmpeg-static: ^4.3.0
   figlet: ^1.5.0
-  module-alias: ^2.2.2
   moment: ^2.29.1
   mongoose: ^5.12.7
   ms: ^2.1.3
