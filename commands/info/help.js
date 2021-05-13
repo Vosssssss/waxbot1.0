@@ -17,8 +17,8 @@ module.exports = {
 				moderation: '🛠┃',
 				giveaways: '🎁┃',
 				fun: '🥅┃',
-				welcome: '👋┃',
 				music: '🎵┃',
+        utility: "🎈┃",
 				basic: '🔨┃',
 				admin: '⚙️┃'
 			};

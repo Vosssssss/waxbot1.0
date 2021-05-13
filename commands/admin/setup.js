@@ -91,7 +91,7 @@ module.exports = {
 
         .addField("👋 Welcome channel", `${welcomeStats}`)
 
-        .addField(`🚶goodbye channel`, `${leav)
+        .addField(`🚶goodbye channel`, `${leaveStats}`)
 
         .addField("💠 Auto Role", `\`COMING SOON\``)
 
