@@ -1,5 +1,5 @@
 const { Collection, Client, Discord } = require("discord.js");
-require('module-alias/register')
+
 const keep_alive = require("./src/keep_alive.js");
 const { Database } = require("quickmongo");
 const fs = require("fs");
