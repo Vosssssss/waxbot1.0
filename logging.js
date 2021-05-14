@@ -369,8 +369,6 @@ ${message.attachments.map(x => x.proxyURL)}
     });
 
     c.on("messageUpdate", function(oldMessage, newMessage) {
-      if (oldMessage.author.bot) return;
-
       if (oldMessage.channel.type !== "text") return;
 
       if (newMessage.channel.type !== "text") return;
