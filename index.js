@@ -13,7 +13,7 @@ module.exports = client;
 const token = process.env.TOKEN;
 client.gg = require("./config/config.json")
 client.db = new Database(
-"mongodb+srv://ngg:CTRj4dXxUdsRRwJ@wax.vfa3u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+
 );
 
 client.emotes = require("./config/emojis.json");
@@ -38,4 +38,18 @@ client.giveawaysManager = new GiveawaysManager(client, {
 client.db.on("ready", () => {
   console.log("Connected with mongodb Database!");
 });
+
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.MONGO, {
+
+    useUnifiedTopology : true,
+
+    useNewUrlParser: true,
+
+}).then(console.log('Connected to mongo db'))
+
+
+
+
 client.login(token);
