@@ -5,16 +5,15 @@ const { Database } = require("quickmongo");
 const fs = require("fs");
 require("dotenv").config();
 const client = new Client({
-  disableEveryone: true
+  disableEveryone: true,
+  partials: ["CHANNEL", "MESSAGE", "GUILD_MEMBER", "REACTION"],
 });
 module.exports = client;
 
 
 const token = process.env.TOKEN;
 client.gg = require("./config/config.json")
-client.db = new Database(
-
-);
+client.db = new Database(process.env.MONGO);
 
 client.emotes = require("./config/emojis.json");
 client.commands = new Collection();
