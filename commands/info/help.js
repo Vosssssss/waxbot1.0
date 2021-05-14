@@ -20,7 +20,8 @@ module.exports = {
 				music: '🎵┃',
         utility: "🎈┃",
 				basic: '🔨┃',
-				admin: '⚙️┃'
+				admin: '⚙️┃',
+        reaction_roles: "📂┃"
 			};
 
 			readdirSync('./commands/').forEach(dir => {
