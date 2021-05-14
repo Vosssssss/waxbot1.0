@@ -22,7 +22,7 @@ client.categories = fs.readdirSync("./commands/");
 ["command"].forEach(handler => {
   require(`./handlers/${handler}`)(client);
 });
-
+require("./logging")(client)
 const { GiveawaysManager } = require("discord-giveaways");
 client.giveawaysManager = new GiveawaysManager(client, {
   storage: "./giveaways.json",
