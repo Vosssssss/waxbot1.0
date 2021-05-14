@@ -22,7 +22,7 @@ client.on('guildMemberAdd', async(member) => {
         .setColor("message-box", "#8015EA")
         .setColor("title", "#8015EA")
         .setColor("avatar", "#8015EA")
-        .setBackground("https://st2.depositphotos.com/1265894/10726/i/950/depositphotos_107269762-stock-photo-winter-ice-frost-frozen-background.jpg")
+        .setBackground("https://cdn.discordapp.com/attachments/825071724948881409/838475943781335070/Jazz_-_Imgur.jpg")
         .toAttachment();
  if (channel){
         const attachment = new Discord.MessageAttachment(
