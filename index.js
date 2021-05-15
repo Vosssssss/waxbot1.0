@@ -6,13 +6,12 @@ const fs = require("fs");
 require("dotenv").config();
 const client = new Client({
   disableEveryone: true,
-  partials: ["CHANNEL", "MESSAGE", "GUILD_MEMBER", "REACTION"],
+  partials: ["CHANNEL", "MESSAGE", "GUILD_MEMBER", "REACTION"]
 });
 module.exports = client;
 
-
 const token = process.env.TOKEN;
-client.gg = require("./config/config.json")
+client.gg = require("./config/config.json");
 client.db = new Database(process.env.MONGO);
 
 client.emotes = require("./config/emojis.json");
@@ -37,56 +36,48 @@ client.db.on("ready", () => {
   console.log("Connected with mongodb Database!");
 });
 
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-mongoose.connect(process.env.MONGO, {
+mongoose
+  .connect(process.env.MONGO, {
+    useUnifiedTopology: true,
 
-    useUnifiedTopology : true,
+    useNewUrlParser: true
+  })
+  .then(console.log("Connected to mongo db"));
 
-    useNewUrlParser: true,
-
-}).then(console.log('Connected to mongo db'))
-
-
-const distube = require('distube');
+const distube = require("distube");
 
 const player = new distube(client, { leaveOnFinish: false });
 
-player.on("playSong", (message, queue, song) => {
-
-  message.channel.send(`Now playing! ${song.name}`)
-
-}).on("addList", (message, queue, playlist, song) => {
-
+player
+  .on("playSong", (message, queue, song) => {
+    message.channel.send(`Now playing! ${song.name}`);
+  })
+  .on("addList", (message, queue, playlist, song) => {
     message.channel.send(
-
-        `Added ${song.name} - \`${song.formattedDuration}\` to queue, requested by ${song.user}`
-
+      `Added ${song.name} - \`${song.formattedDuration}\` to queue, requested by ${song.user}`
     );
+  })
 
-})
+  .on("empty", message => {
+    message.channel.send("Channel is empty. Leaving the channel");
+  })
 
-.on("empty", (message) => {
+  .on("error", (message, err) => {
+    message.channel.send(`An Error occoured: ` + err);
+  })
 
-    message.channel.send("Channel is empty. Leaving the channel")
+  .on("finish", message =>
+    message.channel.send("There are no more songs in the queue")
+  )
 
-})
+  .on("noRelated", message =>
+    message.channel.send("Can't find related video to play.")
+  )
 
-.on("error", (message, err) => {
+  .on("searchCancel", message => message.channel.send(`Searching canceled`));
 
-    message.channel.send(`An Error occoured: ` + err)
-
-})
-
-.on("finish", (message) => message.channel.send("There are no more songs in the queue"))
-
-.on("noRelated", message => message.channel.send("Can't find related video to play."))
-
-.on("searchCancel", (message) => message.channel.send(`Searching canceled`))
-
-client.player = player
-
-
-
+client.player = player;
 
 client.login(token);

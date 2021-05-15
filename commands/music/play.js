@@ -32,7 +32,7 @@ module.exports = {
 
           new MessageEmbed()
 
-          .setDescription(`${config.femoji} what song should i play?`)
+          .setDescription(`${client.emotes.x} what song should i play?`)
 
         )
 
