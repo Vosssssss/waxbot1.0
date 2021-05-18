@@ -30,8 +30,6 @@ module.exports = {
 
     if (!choice) return message.channel.send(mainembed);
 
-    
-
     const getleaveChannel = await db.get(`leave-${message.guild.id}`);
 
     const leaveChannel = await db.fetch(`leave-${message.guild.id}`);
@@ -39,13 +37,10 @@ module.exports = {
     let leaveStats;
 
     if (leaveChannel) {
-
       leaveStats = `<#${getleaveChannel}>`;
-
     } else leaveStats = `\`Not Seted\``;
 
     if (choice === `leaveChannel`) {
-
       let channel = message.mentions.channels.first();
 
       if (!channel) return message.reply("Please specify a channel to set");
@@ -53,18 +48,26 @@ module.exports = {
       await db.set(`leave-${message.guild.id}`, channel.id);
 
       message.channel.send("Leave Channel seted");
-
     }
-    
-    const getMemberRole = await db.get(`memberrole-${message.guild.id}`)
-    const memberRole = await db.fetch(`memberrole-${message.guild.id}`)
+
+    const getMemberRole = await db.get(`memberrole-${message.guild.id}`);
+    const memberRole = await db.fetch(`memberrole-${message.guild.id}`);
     let memberRoleStats;
-    
+
     if (memberRole) {
-      memberRoleStats = `<@&${getMemberRole}>`
-    } else mw members
-    
-    
+      memberRoleStats = `<@&${getMemberRole}>`;
+    } else memberRoleStats = `\`No Role Set\``;
+
+    if (choice === `memberRole`) {
+      let role = message.mentions.roles.first();
+
+      if (!role) return message.reply(`Pls Specify a Role`);
+
+      await db.set(`memberrole-${message.guild.id}`, role.id);
+
+      message.channel.send(`${role} Set as member role`);
+    }
+
     const getWelcomeChannel = await db.get(`welcome-${message.guild.id}`);
     const welcomeChannel = await db.fetch(`welcome-${message.guild.id}`);
     let welcomeStats;
@@ -108,7 +111,7 @@ module.exports = {
 
         .addField("🔨 Logs Channel", `\`COMING SOON\``)
 
-        .addField("👤 Member Role", `\`COMING SOON\``)
+        .addField("👤 Member Role", `${memberRoleStats}`)
 
         .addField("🙊 Muted Role", `\`COMING SOON\``)
 
