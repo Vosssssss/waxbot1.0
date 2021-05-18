@@ -56,6 +56,15 @@ module.exports = {
 
     }
     
+    const getMemberRole = await db.get(`memberrole-${message.guild.id}`)
+    const memberRole = await db.fetch(`memberrole-${message.guild.id}`)
+    let memberRoleStats;
+    
+    if (memberRole) {
+      memberRoleStats = `<@&${getMemberRole}>`
+    } else mw members
+    
+    
     const getWelcomeChannel = await db.get(`welcome-${message.guild.id}`);
     const welcomeChannel = await db.fetch(`welcome-${message.guild.id}`);
     let welcomeStats;
