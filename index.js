@@ -9,7 +9,7 @@ const client = new Client({
   partials: ["CHANNEL", "MESSAGE", "GUILD_MEMBER", "REACTION"]
 });
 module.exports = client;
-
+const button = require("discord-buttons")(client)
 const token = process.env.TOKEN;
 client.gg = require("./config/config.json");
 client.db = new Database(process.env.MONGO);

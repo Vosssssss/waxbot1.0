@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const { readdirSync } = require('fs');
 const prefix = 'x!';
-
+const { MessageButton } = require('discord-buttons');
 //c
 
 module.exports = {
@@ -23,7 +23,17 @@ module.exports = {
 				admin: '⚙️┃',
         reaction_roles: "📂┃"
 			};
-
+ const button1 = new MessageButton()
+ .setStyle("url")
+ .setLabel("invite")
+ .setUrl("[INVITE ME](https://discord.com/api/oauth2/authorize?client_id=828285117125754880&permissions=8&scope=bot%20applications.commands)")
+ 
+ const button1 = new MessageButton()
+ .setStyle("url")
+ .setLabel("invite")
+ .setUrl("[INVITE ME](https://discord.com/api/oauth2/authorize?client_id=828285117125754880&permissions=8&scope=bot%20applications.commands)")
+ 
+ 
 			readdirSync('./commands/').forEach(dir => {
 				let editedNames = `${dirEmojis[dir]} ${dir.toUpperCase()}`;
 				const commands = readdirSync(`./commands/${dir}/`).filter(file =>
@@ -55,7 +65,7 @@ module.exports = {
 					'**Wax bot prefix is `x!` Use x!help {command name} to get more information**'
 				)
 				.setDescription(
-					`[Invite-Me](https://discord.com/api/oauth2/authorize?client_id=828285117125754880&permissions=8&scope=bot%20applications.commands) | [Support](https://discord.gg/REAHW5WhJp) | [Vote](https://infinitybotlist.com/bots/828285117125754880/vote)`
+		 | [Vote](https://infinitybotlist.com/bots/828285117125754880/vote)`
 				)
 				.addFields(categories)
 				.setFooter(
