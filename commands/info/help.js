@@ -28,11 +28,21 @@ module.exports = {
  .setLabel("invite")
  .setUrl("[INVITE ME](https://discord.com/api/oauth2/authorize?client_id=828285117125754880&permissions=8&scope=bot%20applications.commands)")
  
- const button1 = new MessageButton()
+ const button2 = new MessageButton()
  .setStyle("url")
- .setLabel("invite")
- .setUrl("[INVITE ME](https://discord.com/api/oauth2/authorize?client_id=828285117125754880&permissions=8&scope=bot%20applications.commands)")
+ .setLabel("support")
+ .setUrl("[Support](https://discord.gg/REAHW5WhJp)")
  
+ const button3 = new MessageButton()
+
+ .setStyle("url")
+
+ .setLabel("vote")
+
+ .setUrl("[Vote](https://infinitybotlist.com/bots/828285117125754880/vote)")
+
+ 
+
  
 			readdirSync('./commands/').forEach(dir => {
 				let editedNames = `${dirEmojis[dir]} ${dir.toUpperCase()}`;
@@ -63,9 +73,6 @@ module.exports = {
 			const embed = new MessageEmbed()
 				.setTitle(
 					'**Wax bot prefix is `x!` Use x!help {command name} to get more information**'
-				)
-				.setDescription(
-		 | [Vote](https://infinitybotlist.com/bots/828285117125754880/vote)`
 				)
 				.addFields(categories)
 				.setFooter(
