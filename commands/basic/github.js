@@ -14,14 +14,17 @@ module.exports = {
 		if (!name) {
 			return message.channel.send(` Please provide a valid user`);
 		}
-
+    
+    let errorMsg = client.error
+    
+    
 		const url = `https://api.github.com/users/${name}`;
 
 		let response;
 		try {
 			response = await fetch(url).then(res => res.json());
 		} catch (e) {
-			return message.channel.send(`An error occured, please try again!`);
+			return errorMsg(`An error occured, please try again!`, message.channel);
 		}
 
 		try {
@@ -66,7 +69,7 @@ module.exports = {
 
 			message.channel.send(embed);
 		} catch (err) {
-			return message.channel.send(` Please provide a valid user`);
+			return errorMsg(` Please provide a valid user`, message.channel);
 		}
 	}
 };
