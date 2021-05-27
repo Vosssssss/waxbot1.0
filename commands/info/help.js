@@ -1,135 +1,138 @@
-const { MessageEmbed } = require('discord.js');
-const { readdirSync } = require('fs');
-const prefix = 'x!';
-const { MessageButton } = require('discord-buttons');
+const { MessageEmbed } = require("discord.js");
+const { readdirSync } = require("fs");
+const prefix = "x!";
+const { MessageButton } = require("discord-buttons");
 //c
 
 module.exports = {
-	name: 'help',
-	aliases: ['h'],
-	description: 'Shows all available bot commands.',
-	run: async (client, message, args) => {
-		if (!args[0]) {
-			let categories = [];
+  name: "help",
+  aliases: ["h"],
+  description: "Shows all available bot commands.",
+  run: async (client, message, args) => {
+    if (!args[0]) {
+      let categories = [];
 
-			let dirEmojis = {
-				info: '❗┃',
-				moderation: '🛠┃',
-				giveaways: '🎁┃',
-				fun: '🥅┃',
-				music: '🎵┃',
+      let dirEmojis = {
+        info: "❗┃",
+        moderation: "🛠┃",
+        giveaways: "🎁┃",
+        fun: "🥅┃",
+        music: "🎵┃",
         utility: "🎈┃",
-				basic: '🔨┃',
-				admin: '⚙️┃',
+        basic: "🔨┃",
+        admin: "⚙️┃",
         reaction_roles: "📂┃"
-			};
- const button1 = new MessageButton()
- .setStyle("url")
- .setLabel("invite")
- .setUrl("[INVITE ME](https://discord.com/api/oauth2/authorize?client_id=828285117125754880&permissions=8&scope=bot%20applications.commands)")
- 
- const button2 = new MessageButton()
- .setStyle("url")
- .setLabel("support")
- .setUrl("[Support](https://discord.gg/REAHW5WhJp)")
- 
- const button3 = new MessageButton()
+      };
+      const button1 = new MessageButton()
+        .setStyle("url")
+        .setLabel("invite")
+        .setUrl(
+          "[INVITE ME](https://discord.com/api/oauth2/authorize?client_id=828285117125754880&permissions=8&scope=bot%20applications.commands)"
+        );
 
- .setStyle("url")
+      const button2 = new MessageButton()
+        .setStyle("url")
+        .setLabel("support")
+        .setUrl("[Support](https://discord.gg/REAHW5WhJp)");
 
- .setLabel("vote")
+      const button3 = new MessageButton()
 
- .setUrl("[Vote](https://infinitybotlist.com/bots/828285117125754880/vote)")
+        .setStyle("url")
 
- 
+        .setLabel("vote")
 
- 
-			readdirSync('./commands/').forEach(dir => {
-				let editedNames = `${dirEmojis[dir]} ${dir.toUpperCase()}`;
-				const commands = readdirSync(`./commands/${dir}/`).filter(file =>
-					file.endsWith('.js')
-				);
+        .setUrl(
+          "[Vote](https://infinitybotlist.com/bots/828285117125754880/vote)"
+        );
 
-				const cmds = commands.map(command => {
-					let file = require(`../../commands/${dir}/${command}`);
+      readdirSync("./commands/").forEach(dir => {
+        let editedNames = `${dirEmojis[dir]} ${dir.toUpperCase()}`;
+        const commands = readdirSync(`./commands/${dir}/`).filter(file =>
+          file.endsWith(".js")
+        );
 
-					if (!file.name) return 'No command name.';
+        const cmds = commands.map(command => {
+          let file = require(`../../commands/${dir}/${command}`);
 
-					let name = file.name.replace('.js', '');
+          if (!file.name) return "No command name.";
 
-					return `\`${name}\``;
-				});
+          let name = file.name.replace(".js", "");
 
-				let data = new Object();
+          return `\`${name}\``;
+        });
 
-				data = {
-					name: editedNames,
-					value: cmds.length === 0 ? 'In progress.' : cmds.join(' ')
-				};
+        let data = new Object();
 
-				categories.push(data);
-			});
+        data = {
+          name: editedNames,
+          value: cmds.length === 0 ? "In progress." : cmds.join(" ")
+        };
 
-			const embed = new MessageEmbed()
-				.setTitle(
-					'**Wax bot prefix is `x!` Use x!help {command name} to get more information**'
-				)
-				.addFields(categories)
-				.setFooter(
-					`Requested by ${message.author.tag}`,
-					message.author.displayAvatarURL({ dynamic: true })
-				)
-				.setTimestamp()
-				.setColor('RANDOM');
-			return message.channel.send(embed);
-		} else {
-			const command =
-				client.commands.get(args[0].toLowerCase()) ||
-				client.commands.find(
-					c => c.aliases && c.aliases.includes(args[0].toLowerCase())
-				);
+        categories.push(data);
+      });
 
-			if (!command) {
-				const embed = new MessageEmbed()
-					.setTitle(
-						`Invalid command! Use \`${prefix}help\` for all of my commands!`
-					)
-					.setColor('FF0000');
-				return message.channel.send(embed);
-			}
+      const embed = new MessageEmbed()
+        .setTitle(
+          "**Wax bot prefix is `x!` Use x!help {command name} to get more information**"
+        )
+        .addFields(categories)
+        .setFooter(
+          `Requested by ${message.author.tag}`,
+          message.author.displayAvatarURL({ dynamic: true })
+        )
+        .setTimestamp()
+        .setColor("RANDOM");
+      return message.channel.send(embed, {
+        buttons: [button1, button2, button3]
+      });
+    } else {
+      const command =
+        client.commands.get(args[0].toLowerCase()) ||
+        client.commands.find(
+          c => c.aliases && c.aliases.includes(args[0].toLowerCase())
+        );
 
-			const embed = new MessageEmbed()
-				.setTitle('Command Details:')
-				.addField('PREFIX:', `\`${prefix}\``)
-				.addField(
-					'COMMAND NAME:',
-					command.name ? `\`${command.name}\`` : 'No name for this command'
-				)
-				.addField(
-					'ALIASES:',
-					command.aliases
-						? `\`${command.aliases.join('` `')}\``
-						: 'No aliases for this command'
-				)
-				.addField(
-					'USAGE:',
-					command.usage
-						? `\`${prefix}${command.name} ${command.usage}\``
-						: `\`${prefix}${command.name}\``
-				)
-				.addField(
-					'DESCRIPTION:',
-					command.description
-						? command.description
-						: 'No description for this command'
-				)
-				.setFooter(
-					`Requested by ${message.author.tag}`,
-					message.author.displayAvatarURL({ dynamic: true })
-				)
-				.setTimestamp()
-				.setColor('RANDOM');
-			return message.channel.send(embed);
-		}
-	}
+      if (!command) {
+        const embed = new MessageEmbed()
+          .setTitle(
+            `Invalid command! Use \`${prefix}help\` for all of my commands!`
+          )
+          .setColor("FF0000");
+        return message.channel.send(embed);
+      }
+
+      const embed = new MessageEmbed()
+        .setTitle("Command Details:")
+        .addField("PREFIX:", `\`${prefix}\``)
+        .addField(
+          "COMMAND NAME:",
+          command.name ? `\`${command.name}\`` : "No name for this command"
+        )
+        .addField(
+          "ALIASES:",
+          command.aliases
+            ? `\`${command.aliases.join("` `")}\``
+            : "No aliases for this command"
+        )
+        .addField(
+          "USAGE:",
+          command.usage
+            ? `\`${prefix}${command.name} ${command.usage}\``
+            : `\`${prefix}${command.name}\``
+        )
+        .addField(
+          "DESCRIPTION:",
+          command.description
+            ? command.description
+            : "No description for this command"
+        )
+        .setFooter(
+          `Requested by ${message.author.tag}`,
+          message.author.displayAvatarURL({ dynamic: true })
+        )
+        .setTimestamp()
+        .setColor("RANDOM");
+      return message.channel.send(embed);
+    }
+  }
 };

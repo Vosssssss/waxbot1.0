@@ -8,8 +8,8 @@ const client = new Client({
   disableEveryone: true,
   partials: ["CHANNEL", "MESSAGE", "GUILD_MEMBER", "REACTION"]
 });
+require('discord-buttons')(client)
 module.exports = client;
-const button = require("discord-buttons")(client)
 const token = process.env.TOKEN;
 client.gg = require("./config/config.json");
 client.db = new Database(process.env.MONGO);
