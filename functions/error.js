@@ -5,6 +5,6 @@ module.exports = async function(text, channel) {
    .setTitle("Error")
    .setDescription(":x:" + text)
    .setTimestamp();
-  channel.send(
+ await channel.send(Msg)
  
 }
