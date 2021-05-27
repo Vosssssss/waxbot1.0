@@ -47,7 +47,7 @@ module.exports = {
       });
 
       const embed = new MessageEmbed()
-        .setTitle("")
+        .setTitle("Wax Bot Prefix is `")
         .addFields(categories)
         .setFooter(
           `Requested by ${message.author.tag}`,
