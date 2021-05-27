@@ -23,19 +23,19 @@ module.exports = {
         admin: "⚙️┃",
         reaction_roles: "📂┃"
       };
-      const button1 = new MessageButton()
+      const button1 = new disbut.MessageButton()
         .setStyle("url")
         .setLabel("invite")
         .setUrl(
           "[INVITE ME](https://discord.com/api/oauth2/authorize?client_id=828285117125754880&permissions=8&scope=bot%20applications.commands)"
         );
 
-      const button2 = new MessageButton()
+      const button2 = new disbut.MessageButton()
         .setStyle("url")
         .setLabel("support")
         .setUrl("[Support](https://discord.gg/REAHW5WhJp)");
 
-      const button3 = new MessageButton()
+      const button3 = new disbut.MessageButton()
 
         .setStyle("url")
 
