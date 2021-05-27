@@ -23,28 +23,6 @@ module.exports = {
         admin: "⚙️┃",
         reaction_roles: "📂┃"
       };
-      const button1 = new disbut.MessageButton()
-        .setStyle("url")
-        .setLabel("invite")
-        .setUrl(
-          "[INVITE ME](https://discord.com/api/oauth2/authorize?client_id=828285117125754880&permissions=8&scope=bot%20applications.commands)"
-        );
-
-      const button2 = new disbut.MessageButton()
-        .setStyle("url")
-        .setLabel("support")
-        .setUrl("[Support](https://discord.gg/REAHW5WhJp)");
-
-      const button3 = new disbut.MessageButton()
-
-        .setStyle("url")
-
-        .setLabel("vote")
-
-        .setUrl(
-          "[Vote](https://infinitybotlist.com/bots/828285117125754880/vote)"
-        );
-
       readdirSync("./commands/").forEach(dir => {
         let editedNames = `${dirEmojis[dir]} ${dir.toUpperCase()}`;
         const commands = readdirSync(`./commands/${dir}/`).filter(file =>
@@ -58,10 +36,7 @@ module.exports = {
 
           let name = file.name.replace(".js", "");
 
-          return `\`${name}\``;
-        });
-
-        let data = new Object();
+          return `\`;
 
         data = {
           name: editedNames,
@@ -72,9 +47,7 @@ module.exports = {
       });
 
       const embed = new MessageEmbed()
-        .setTitle(
-          "**Wax bot prefix is `x!` Use x!help {command name} to get more information**"
-        )
+        .setTitle("")
         .addFields(categories)
         .setFooter(
           `Requested by ${message.author.tag}`,
@@ -82,9 +55,7 @@ module.exports = {
         )
         .setTimestamp()
         .setColor("RANDOM");
-      return message.channel.send(embed, {
-        buttons: [button1, button2, button3]
-      });
+      return message.channel.send(embed);
     } else {
       const command =
         client.commands.get(args[0].toLowerCase()) ||
