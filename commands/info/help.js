@@ -53,8 +53,9 @@ module.exports = {
       
       let invite = new MessageButton()
       .setStyle("url")
-      .setURL("[INVITE ME](https://discord.com/api/oauth2/authorize?client_id=828285117125754880&permissions=4290117463&scope=bot%20applications.commands)")
+      .setURL("[INVITE_ME](https://discord.com/api/oauth2/authorize?client_id=828285117125754880&permissions=4290117463&scope=bot%20applications.commands)")
       .setLabel("Invite Me")
+      .setID("inviteme")
 
       const embed = new MessageEmbed()
         .setTitle("Wax Bot Prefix is `x!` Use x!help {command name} to get more information ")
