@@ -21,7 +21,8 @@ module.exports = {
         utility: "🎈┃",
         basic: "🔨┃",
         admin: "⚙️┃",
-        reaction_roles: "📂┃"
+        reaction_roles: "📂┃",
+        emotes: "⛱️┃"
       };
       readdirSync("./commands/").forEach(dir => {
         let editedNames = `${dirEmojis[dir]} ${dir.toUpperCase()}`;
