@@ -36,18 +36,20 @@ module.exports = {
 
           let name = file.name.replace(".js", "");
 
-          return `\`;
+          return `\`${name}\``;
+        });
 
+        let data = new Object();
         data = {
           name: editedNames,
           value: cmds.length === 0 ? "In progress." : cmds.join(" ")
         };
 
-        categories.push(data);`
+        categories.push(data);
       });
 
       const embed = new MessageEmbed()
-        .setTitle("Wax Bot Prefix is ")
+        .setTitle("Wax Bot Prefix is `x!` Use x!help {command name} to get more information ")
         .addFields(categories)
         .setFooter(
           `Requested by ${message.author.tag}`,
