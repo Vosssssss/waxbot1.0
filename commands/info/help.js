@@ -43,11 +43,11 @@ module.exports = {
           value: cmds.length === 0 ? "In progress." : cmds.join(" ")
         };
 
-        categories.push(data);
+        categories.push(data);`
       });
 
       const embed = new MessageEmbed()
-        .setTitle("Wax Bot Prefix is `")
+        .setTitle("Wax Bot Prefix is ")
         .addFields(categories)
         .setFooter(
           `Requested by ${message.author.tag}`,
