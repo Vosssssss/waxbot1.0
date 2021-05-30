@@ -1,3 +1,3 @@
-module.exports = async functions(text, channel) => {
-  
+module.exports = async function(text, channel) {
+  channel.send(`\`${text}\``)
 }

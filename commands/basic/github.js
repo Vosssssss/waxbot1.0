@@ -9,13 +9,13 @@ module.exports = {
 	aliases: ['github'],
 	usage: '`x!github <user>`',
 
-	run: async (client, message, args) => {
+	run: async (client, message, args, msgs) => {
 		const name = args.join(' ');
 		if (!name) {
 			return message.channel.send(` Please provide a valid user`);
 		}
     
-    let errorMsg = client.error
+    let errorMsg = msgs;
     
     
 		const url = `https://api.github.com/users/${name}`;

@@ -2,7 +2,7 @@ const client = require("../index")
 const prefix = "x!"
 const { badwords } = require("../src/badwords.json")
 const db = client.db;
-
+const msgs = require("../msgs.js")
 
 client.on('message', async message => {
     if (await db.fetch(`swear-${message.guild.id}`) === true){
@@ -22,5 +22,5 @@ client.on('message', async message => {
     if(cmd.length == 0 ) return;
     let command = client.commands.get(cmd)
     if(!command) command = client.commands.get(client.aliases.get(cmd));
-    if(command) command.run(client, message, args) 
+    if(command) command.run(client, message, args, msgs) 
 })

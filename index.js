@@ -13,8 +13,8 @@ module.exports = client;
 const token = process.env.TOKEN;
 client.gg = require("./config/config.json");
 client.db = new Database(process.env.MONGO);
-client.error = require("./functions/error.js")
 
+const msgs = require("./msgs.js")
 
 client.emotes = require("./config/emojis.json");
 client.commands = new Collection();
